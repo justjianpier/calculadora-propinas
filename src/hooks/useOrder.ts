@@ -21,9 +21,14 @@ export const useOrder = () => {
     }
   };
 
+  const removeItem = (item: MenuItem) => {
+    setOrder(order.filter((orderItem) => orderItem.id !== item.id));
+  };
+
   return {
     order,
     setOrder,
     addItem,
+    removeItem,
   };
 };
