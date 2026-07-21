@@ -1,10 +1,12 @@
 import { MenuItem } from "./components/MenuItem";
 import { OrderContents } from "./components/OrderContents";
+import { OrderTotal } from "./components/OrderTotals";
+import { TipPercentage } from "./components/TipPercentage";
 import { menuItems } from "./data/db";
 import { useOrder } from "./hooks/useOrder";
 
 function App() {
-  const { order, setOrder, addItem, removeItem } = useOrder();
+  const { order, tip, setTip, addItem, removeItem } = useOrder();
 
   return (
     <>
@@ -27,6 +29,8 @@ function App() {
           <h2 className="text-3xl font-black mb-10">Orden y Consumo</h2>
           <div>
             <OrderContents order={order} removeItem={removeItem} />
+            <TipPercentage setTip={setTip} />
+            <OrderTotal order={order} tip={tip} />
           </div>
         </div>
       </section>
