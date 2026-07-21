@@ -1,3 +1,4 @@
+import { formatCurrency } from "../helpers";
 import type { OrderItem } from "../types";
 
 type OrderTotalProps = {
@@ -17,9 +18,9 @@ export function OrderTotal({ order, tip }: OrderTotalProps) {
 
   return (
     <div className="mt-5">
-      <p className="font-bold">Subtotal: ${subTotalAmount}</p>
-      <p className="font-bold">Propina: ${tipAmount}</p>
-      <p className="font-bold">Total: ${totalAmount}</p>
+      <p className="font-bold">Subtotal: {formatCurrency(subTotalAmount)}</p>
+      <p className="font-bold">Propina: {formatCurrency(tipAmount)}</p>
+      <p className="font-bold">Total: {formatCurrency(totalAmount)}</p>
     </div>
   );
 }
