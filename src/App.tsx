@@ -27,11 +27,15 @@ function App() {
 
         <div className="border border-dashed p-2 rounded-lg">
           <h2 className="text-3xl font-black mb-10">Orden y Consumo</h2>
-          <div>
-            <OrderContents order={order} removeItem={removeItem} />
-            <TipPercentage setTip={setTip} />
-            <OrderTotal order={order} tip={tip} />
-          </div>
+          {!order.length ? (
+            <p className="text-center">🛒 La orden está vacía</p>
+          ) : (
+            <>
+              <OrderContents order={order} removeItem={removeItem} />
+              <TipPercentage setTip={setTip} />
+              <OrderTotal order={order} tip={tip} />
+            </>
+          )}
         </div>
       </section>
     </>
